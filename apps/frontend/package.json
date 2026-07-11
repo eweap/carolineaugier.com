@@ -1,0 +1,11 @@
+{
+  "name": "@carolineaugier/carolineaugier.com",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "frontend"
+  },
+  "devDependencies": {
+    "@carolineaugier/ui": "workspace:*"
+  }
+}

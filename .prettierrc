@@ -1,3 +1,22 @@
 {
-  "singleQuote": true
+  "singleQuote": false,
+  "singleAttributePerLine": true,
+  "plugins": ["prettier-plugin-embed", "@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^vue(-i18n)?$",
+    "^@vueuse/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "<SEPARATOR>",
+
+    "^@carolineaugier/(.*)$",
+    "<SEPARATOR>",
+
+    "^[./]",
+    "<SEPARATOR>",
+
+    "^@/",
+    "<SEPARATOR>"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }
