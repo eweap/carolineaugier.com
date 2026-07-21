@@ -1,0 +1,26 @@
+fragment productFields on Product {
+  id
+  handle
+  title
+  onlineStoreUrl
+  featuredImage {
+    url
+    altText
+  }
+}
+
+query getProductsList {
+  products(first: 12) {
+    edges {
+      node {
+        ...productFields
+      }
+    }
+  }
+}
+
+query getProductByHandle($handle: String) {
+  product(handle: $handle) {
+    ...productFields
+  }
+}

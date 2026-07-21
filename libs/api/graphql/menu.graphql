@@ -1,0 +1,17 @@
+fragment menuItemFields on MenuItem {
+  type
+  title
+  url
+}
+
+fragment menuFields on Menu {
+  items {
+    ...menuItemFields
+  }
+}
+
+query getMenu($handle: String!) {
+  menu(handle: $handle) {
+    ...menuFields
+  }
+}

@@ -1,10 +1,13 @@
 /// <reference types='vitest' />
 import tailwindcss from "@tailwindcss/vite";
 import vue from "@vitejs/plugin-vue";
+import Icons from "unplugin-icons/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
+  envDir: "../../",
+  envPrefix: "SHOPIFY_",
   cacheDir: "../../node_modules/.vite/apps/carolineaugier.com",
   server: {
     port: 4200,
@@ -14,7 +17,13 @@ export default defineConfig(() => ({
     port: 4300,
     host: "localhost",
   },
-  plugins: [vue(), tailwindcss()],
+  plugins: [
+    vue(),
+    tailwindcss(),
+    Icons({
+      compiler: "vue3",
+    }),
+  ],
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [],

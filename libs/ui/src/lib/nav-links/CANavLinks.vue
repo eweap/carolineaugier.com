@@ -1,18 +1,18 @@
 <script setup lang="ts">
+import { MenuItem } from "@carolineaugier/api-types";
+
 defineProps<{
-  links: {
-    label: string;
-    href: string;
-  }[];
+  items: MenuItem[];
 }>();
 </script>
 
 <template>
-  <nav class="flex gap-4">
+  <nav class="flex flex-wrap gap-4">
     <RouterLink
-      v-for="link in links"
-      :to="link.href"
-      >{{ link.label }}</RouterLink
+      v-for="(link, index) in items"
+      :key="index"
+      :to="link.url ?? '#'"
+      >{{ link.title }}</RouterLink
     >
   </nav>
 </template>
@@ -21,14 +21,16 @@ defineProps<{
 @reference "tailwindcss";
 
 a {
-  @apply relative outline-none uppercase;
+  @apply relative outline-none;
+  @apply uppercase font-normal text-lg text-neutral-700 hover:text-black transition-colors duration-300;
 }
 
+/* After */
 a::after {
   content: "";
-  @apply absolute bottom-0 left-0;
+  @apply absolute -bottom-1 left-0;
   @apply w-full h-0.5;
-  @apply bg-neutral-500;
+  @apply bg-black;
   @apply opacity-0 duration-300;
 }
 

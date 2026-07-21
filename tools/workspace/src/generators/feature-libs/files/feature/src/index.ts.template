@@ -1,0 +1,4 @@
+<% if(hasDataAccessLib) { %>export * from "@carolineaugier/<%= ressourceNamePlural %>-data-access";<% } %>
+<% if(hasTypesLib) { %>export * from "@carolineaugier/<%= ressourceNamePlural %>-types";<% } %>
+<% if(hasUILib) { %>export * from "@carolineaugier/<%= ressourceNamePlural %>-ui";<% } %>
+<% if(hasUtilLib) { %>export * from "@carolineaugier/<%= ressourceNamePlural %>-util";<% } %>

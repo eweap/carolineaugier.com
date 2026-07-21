@@ -1,16 +1,35 @@
 <script setup lang="ts">
-import { CATopbar } from "@carolineaugier/ui";
+import { useQuery } from "@tanstack/vue-query";
 
-import { NAV_LINKS } from "../../constants/nav-links";
+import { menusQueries, shopDetailsQueries } from "@carolineaugier/api";
+import { CAFooter, CATopbar } from "@carolineaugier/ui";
+
+const { data: mainMenu } = useQuery(menusQueries.getMenu("main-menu"));
+const { data: footerMenu } = useQuery(menusQueries.getMenu("footer"));
+
+const { data: shopDetails } = useQuery(shopDetailsQueries.getShopDetails());
 </script>
 
 <template>
-  <div>
-    <CATopbar
-      logo="assets/logo.png"
-      :links="NAV_LINKS"
-    />
+  <Suspense>
+    <div>
+      <CATopbar
+        :logo="shopDetails?.brand?.logo?.image"
+        :items="mainMenu?.items"
+      />
 
-    <router-view />
-  </div>
+      <main>
+        <router-view />
+      </main>
+
+      <CAFooter
+        v-if="footerMenu"
+        :items="footerMenu.items"
+      />
+    </div>
+
+    <template #fallback>
+      <div>Loading...</div>
+    </template>
+  </Suspense>
 </template>

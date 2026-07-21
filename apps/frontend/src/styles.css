@@ -1,5 +1,14 @@
-@import "tailwindcss";
+@import "../../../css/theme.css";
 
 /* nx-tailwind-sources:start */
+@source "../../../libs/api/data-access";
+@source "../../../libs/api/feature";
+@source "../../../libs/api/types";
+@source "../../../libs/api/util";
+@source "../../../libs/common";
 @source "../../../libs/ui";
 /* nx-tailwind-sources:end */
+
+html {
+  @apply h-full;
+}

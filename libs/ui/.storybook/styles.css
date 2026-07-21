@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* nx-tailwind-sources:start */
+@source "../../api/types";
+@source "../../common";
+/* nx-tailwind-sources:end */

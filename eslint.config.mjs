@@ -25,7 +25,6 @@ export default [
       "@nx/enforce-module-boundaries": [
         "error",
         {
-          enforceBuildableLibDependency: true,
           allow: ["^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$"],
           depConstraints: [
             {
@@ -122,7 +121,7 @@ export const customRules = [
       "vue/no-undef-components": [
         "error",
         {
-          ignorePatterns: ["router-link"],
+          ignorePatterns: ["router-link", "router-view"],
         },
       ],
       "vue/html-indent": "off",

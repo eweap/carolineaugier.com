@@ -1,0 +1,46 @@
+fragment shopFields on Shop {
+  name
+  description
+  brand {
+    colors {
+      primary {
+        background
+        foreground
+      }
+      secondary {
+        background
+        foreground
+      }
+    }
+    coverImage {
+      image {
+        url
+        altText
+      }
+    }
+    logo {
+      image {
+        url
+        altText
+      }
+    }
+    squareLogo {
+      image {
+        url
+        altText
+      }
+    }
+    shortDescription
+    slogan
+  }
+  contactInformation {
+    title
+    body
+  }
+}
+
+query getShopDetails {
+  shop {
+    ...shopFields
+  }
+}

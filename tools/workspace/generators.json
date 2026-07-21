@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "feature-libs": {
+      "factory": "./src/generators/feature-libs/feature-libs",
+      "schema": "./src/generators/feature-libs/schema.json",
+      "description": "feature-libs generator"
+    }
+  }
+}

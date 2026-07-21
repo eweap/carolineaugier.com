@@ -78,11 +78,32 @@
     }
   ],
   "targetDefaults": {
+    "serve": {
+      "dependsOn": ["^codegen"]
+    },
     "test": {
       "dependsOn": ["^build"]
     },
     "build": {
+      "dependsOn": ["^build", "^codegen"],
       "syncGenerators": ["@juristr/nx-tailwind-sync:source-directives"]
+    },
+    "build-storybook": {
+      "cache": true
+    },
+    "codegen": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "command": "pnpm graphql-codegen --config codegen.ts"
+      },
+      "cache": true,
+      "inputs": [
+        "{workspaceRoot}/**/*.graphql",
+        "{workspaceRoot}/**/codegen.ts"
+      ],
+      "outputs": ["{projectRoot}/src/lib/__generated__"],
+      "dependsOn": ["^codegen"]
     }
   },
   "nxCloudId": "6a5232d82ed7151f363469e2"

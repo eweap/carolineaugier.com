@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "FeatureLibs",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "libTypes": {
+      "type": "array",
+      "description": "The lib types to generate",
+      "x-prompt": {
+        "message": "Which lib types would you like to generate?",
+        "type": "list",
+        "multiselect": true,
+        "items": ["feature", "data-access", "ui", "types", "util"]
+      }
+    },
+    "ressourceNameSingular": {
+      "type": "string",
+      "description": "",
+      "x-prompt": "What ressource name singular would you like to use?"
+    },
+    "ressourceNamePlural": {
+      "type": "string",
+      "description": "",
+      "x-prompt": "What ressource name plural would you like to use?"
+    }
+  },
+  "required": ["ressourceNameSingular", "ressourceNamePlural"]
+}

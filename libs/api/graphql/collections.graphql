@@ -1,0 +1,33 @@
+fragment collectionFields on Collection {
+  id
+  handle
+  title
+  description
+  image {
+    url
+    altText
+  }
+  products(first: 12) {
+    edges {
+      node {
+        ...productFields
+      }
+    }
+  }
+}
+
+query getCollectionsList {
+  collections(first: 12) {
+    edges {
+      node {
+        ...collectionFields
+      }
+    }
+  }
+}
+
+query getCollectionByHandle($handle: String) {
+  collection(handle: $handle) {
+    ...collectionFields
+  }
+}

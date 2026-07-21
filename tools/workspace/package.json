@@ -1,0 +1,52 @@
+{
+  "name": "@carolineaugier/workspace-tools",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@nx/devkit": "23.1.0",
+    "tslib": "^2.3.0"
+  },
+  "generators": "./generators.json",
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo",
+    "generators.json"
+  ],
+  "nx": {
+    "name": "workspace-tools",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "tools/workspace/src",
+    "projectType": "library",
+    "tags": [
+      "type:tool"
+    ],
+    "// targets": "to see all targets run: nx show project workspace-tools --web",
+    "targets": {
+      "audit-workspace-deps": {
+        "executor": "nx:run-commands",
+        "options": {
+          "cwd": "{workspaceRoot}",
+          "command": "tsx tools/workspace/src/scripts/workspace-deps.ts"
+        }
+      },
+      "fix-workspace-deps": {
+        "executor": "nx:run-commands",
+        "options": {
+          "cwd": "{workspaceRoot}",
+          "command": "tsx tools/workspace/src/scripts/workspace-deps.ts --write"
+        }
+      }
+    }
+  }
+}

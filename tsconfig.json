@@ -11,6 +11,24 @@
     },
     {
       "path": "./libs/ui"
+    },
+    {
+      "path": "./libs/common"
+    },
+    {
+      "path": "./tools/workspace"
+    },
+    {
+      "path": "./libs/api/util"
+    },
+    {
+      "path": "./libs/api/types"
+    },
+    {
+      "path": "./libs/api/data-access"
+    },
+    {
+      "path": "./libs/api/feature"
     }
   ]
 }

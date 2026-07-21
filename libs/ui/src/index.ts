@@ -1,2 +1,12 @@
 export { default as CAButton } from "./lib/button/CAButton.vue";
+export { default as CACollectionFeatured } from "./lib/collection-featured/CACollectionFeatured.vue";
+export { default as CACollectionsList } from "./lib/collections-list/CACollectionsList.vue";
+export { default as CAFooter } from "./lib/footer/CAFooter.vue";
+export { default as CAImage } from "./lib/image/CAImage.vue";
+export { default as CALazySection } from "./lib/lazy-section/CALazySection.vue";
+export { default as CALoader } from "./lib/loader/CALoader.vue";
+export { default as CANavLinks } from "./lib/nav-links/CANavLinks.vue";
+export { default as CAPage } from "./lib/page/CAPage.vue";
+export { default as CASkeleton } from "./lib/skeleton/CASkeleton.vue";
+export { default as CASticker } from "./lib/sticker/CASticker.vue";
 export { default as CATopbar } from "./lib/topbar/CATopbar.vue";

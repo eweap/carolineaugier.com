@@ -1,11 +1,18 @@
 import tailwindcss from "@tailwindcss/vite";
 import vue from "@vitejs/plugin-vue";
+import Icons from "unplugin-icons/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig(() => ({
   root: __dirname,
   cacheDir: "../../node_modules/.vite/libs/ui",
-  plugins: [vue(), tailwindcss()],
+  plugins: [
+    vue(),
+    tailwindcss(),
+    Icons({
+      compiler: "vue3",
+    }),
+  ],
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [],

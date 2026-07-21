@@ -6,6 +6,11 @@ on:
       - main
   pull_request:
 
+env:
+  SHOPIFY_STORE_DOMAIN: ${{ vars.SHOPIFY_STORE_DOMAIN }}
+  SHOPIFY_PUBLIC_ACCESS_TOKEN: ${{ vars.SHOPIFY_PUBLIC_ACCESS_TOKEN }}
+  SHOPIFY_API_VERSION: ${{ vars.SHOPIFY_API_VERSION }}
+
 permissions:
   actions: read
   contents: read
@@ -19,11 +24,10 @@ jobs:
           filter: tree:0
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
         name: Install pnpm
         with:
-          version: 9.8.0
-          run_install: false
+          version: 11.17.0
 
       # This enables task distribution via Nx Cloud
       # Run this command as early as possible, before dependencies are installed
@@ -34,7 +38,7 @@ jobs:
       # Cache node_modules
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: '.nvmrc'
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile

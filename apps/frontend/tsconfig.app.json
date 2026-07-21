@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist",
-    "types": ["vite/client"],
+    "types": ["vite/client", "unplugin-icons/types/vue"],
     "rootDir": "src",
     "jsx": "preserve",
     "jsxImportSource": "vue",
@@ -34,6 +34,12 @@
   "references": [
     {
       "path": "../../libs/ui/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/common/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/api/feature/tsconfig.lib.json"
     }
   ]
 }

@@ -17,5 +17,9 @@
     "tags": [
       "type:ui"
     ]
+  },
+  "dependencies": {
+    "@carolineaugier/api-types": "workspace:*",
+    "@carolineaugier/common": "workspace:*"
   }
 }

@@ -6,7 +6,17 @@ const meta = {
   component: CAButton,
   title: "CAButton",
   render: (args) => ({
-    template: `<CAButton v-bind="args">My button</CAButton>`,
+    components: { CAButton },
+    setup() {
+      return { args };
+    },
+    template: `
+    <div class="flex items-center gap-4">
+      <CAButton v-bind="args" variant="primary">Primary</CAButton>
+      <CAButton v-bind="args" variant="outline">Outline</CAButton>
+      <CAButton v-bind="args" variant="ghost">Ghost</CAButton>
+    </<div>
+    `,
   }),
 } satisfies Meta<typeof CAButton>;
 export default meta;
