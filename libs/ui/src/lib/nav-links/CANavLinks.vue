@@ -22,7 +22,7 @@ defineProps<{
 
 a {
   @apply relative outline-none;
-  @apply uppercase font-normal text-lg text-neutral-700 hover:text-black transition-colors duration-300;
+  @apply uppercase font-normal text-neutral-700 hover:text-black transition-colors duration-300;
 }
 
 /* After */

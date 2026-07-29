@@ -7,6 +7,19 @@ fragment productFields on Product {
     url
     altText
   }
+  priceRange {
+    ...productPriceRangeFields
+  }
+  variants(first: 12) {
+    edges {
+      node {
+        title
+        price {
+          ...moneyV2Fields
+        }
+      }
+    }
+  }
 }
 
 query getProductsList {

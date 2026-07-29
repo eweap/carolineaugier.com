@@ -1,0 +1,28 @@
+fragment pageFields on Page {
+  id
+  handle
+  title
+  body
+  image: metafield(namespace: "custom", key: "image") {
+    reference {
+      __typename
+      ... on MediaImage {
+        id
+        image {
+          url
+          altText
+        }
+      }
+      ... on GenericFile {
+        id
+        url
+      }
+    }
+  }
+}
+
+query getPageByHandle($handle: String) {
+  page(handle: $handle) {
+    ...pageFields
+  }
+}

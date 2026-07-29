@@ -15,7 +15,10 @@ defineProps<{
 <template>
   <footer class="p-8 space-y-8">
     <div class="flex justify-center">
-      <CANavLinks :items="items" />
+      <CANavLinks
+        class="text-xs"
+        :items="items"
+      />
     </div>
   </footer>
 </template>

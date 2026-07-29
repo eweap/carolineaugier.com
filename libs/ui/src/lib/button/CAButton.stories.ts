@@ -15,7 +15,7 @@ const meta = {
       <CAButton v-bind="args" variant="primary">Primary</CAButton>
       <CAButton v-bind="args" variant="outline">Outline</CAButton>
       <CAButton v-bind="args" variant="ghost">Ghost</CAButton>
-    </<div>
+    </div>
     `,
   }),
 } satisfies Meta<typeof CAButton>;

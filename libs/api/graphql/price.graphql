@@ -1,0 +1,13 @@
+fragment moneyV2Fields on MoneyV2 {
+  amount
+  currencyCode
+}
+
+fragment productPriceRangeFields on ProductPriceRange {
+  minVariantPrice {
+    ...moneyV2Fields
+  }
+  maxVariantPrice {
+    ...moneyV2Fields
+  }
+}

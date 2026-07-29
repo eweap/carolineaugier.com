@@ -8,6 +8,16 @@ export const SHOPIFY_ROUTES = {
     name: "contact",
     path: "/pages/contact",
   },
+  GenericPage: {
+    name: "generic-page",
+    path: "/pages/:handle",
+  },
+
+  // Collections
+  CollectionDetails: {
+    name: "collection-details",
+    path: "/collections/:handle",
+  },
 
   // Products
   Products: {

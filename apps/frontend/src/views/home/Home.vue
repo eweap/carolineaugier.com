@@ -13,7 +13,7 @@ const { data: collections, isLoading: isCollectionsLoading } = useQuery(
   collectionsQueries.getCollectionsList(),
 );
 const { data: featuredCollection, isLoading } = useQuery(
-  collectionsQueries.getCollectionDetails(SHOPIFY_HANDLES.FeaturedCollection),
+  collectionsQueries.getCollectionDetails(SHOPIFY_HANDLES.collections.featured),
 );
 </script>
 
@@ -34,7 +34,7 @@ const { data: featuredCollection, isLoading } = useQuery(
           :is-loading="isCollectionsLoading"
           :collections="
             collections?.filter(
-              (c) => c.handle !== SHOPIFY_HANDLES.FeaturedCollection,
+              (c) => c.handle !== SHOPIFY_HANDLES.collections.featured,
             )
           "
         />

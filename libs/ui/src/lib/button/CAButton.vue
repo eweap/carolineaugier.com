@@ -28,7 +28,7 @@ withDefaults(
 .button {
   @apply appearance-none;
   @apply py-1 px-2;
-  @apply font-semibold;
+  @apply uppercase font-semibold;
   @apply cursor-pointer;
   @apply transition-colors duration-150;
 }

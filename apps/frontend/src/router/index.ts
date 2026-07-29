@@ -23,6 +23,20 @@ export const router = createRouter({
           name: SHOPIFY_ROUTES.Contact.name,
           component: () => import("../views/contact/Contact.vue"),
         },
+        {
+          path: SHOPIFY_ROUTES.GenericPage.path,
+          name: SHOPIFY_ROUTES.GenericPage.name,
+          component: () => import("../components/page/Page.vue"),
+          props: true,
+        },
+
+        // Collections
+        {
+          path: SHOPIFY_ROUTES.CollectionDetails.path,
+          name: SHOPIFY_ROUTES.CollectionDetails.name,
+          component: () => import("../views/collections/CollectionDetails.vue"),
+          props: true,
+        },
 
         // Products
         {

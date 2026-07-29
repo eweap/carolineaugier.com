@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { MenuItem } from "@carolineaugier/api-types";
+import { SHOPIFY_ROUTES } from "@carolineaugier/common";
 
 import CANavLinks from "../nav-links/CANavLinks.vue";
 import CASkeleton from "../skeleton/CASkeleton.vue";
@@ -16,26 +17,33 @@ defineProps<{
 <template>
   <div class="p-8 flex flex-col lg:flex-row items-center gap-8">
     <!-- Logo -->
-    <div class="shrink-0">
-      <figure v-if="logo">
-        <img
-          class="w-64 mx-auto lg:mx-0"
-          :src="logo.url"
-          :alt="logo.altText ?? undefined"
-          :draggable="false"
-        />
-      </figure>
+    <div class="shrink-0 z-10">
+      <RouterLink
+        :to="{
+          name: SHOPIFY_ROUTES.Home.name,
+        }"
+      >
+        <figure v-if="logo">
+          <img
+            class="w-64 mx-auto lg:mx-0"
+            :src="logo.url"
+            :alt="logo.altText ?? undefined"
+            :draggable="false"
+          />
+        </figure>
 
-      <CASkeleton
-        v-else
-        class="w-96 h-12"
-      />
+        <CASkeleton
+          v-else
+          class="w-96 h-12"
+        />
+      </RouterLink>
     </div>
 
     <!-- Menu  -->
     <div class="relative lg:-left-32 grow flex justify-center">
       <CANavLinks
         v-if="items"
+        class="text-lg"
         :items="items"
       />
 

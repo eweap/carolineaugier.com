@@ -1,3 +1,8 @@
 export const SHOPIFY_HANDLES = {
-  FeaturedCollection: "en-avant",
+  pages: {
+    contact: "contact",
+  },
+  collections: {
+    featured: "en-avant",
+  },
 };

@@ -19,5 +19,7 @@
       "type:util"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "@carolineaugier/api-types": "workspace:*"
+  }
 }

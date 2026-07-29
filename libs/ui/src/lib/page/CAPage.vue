@@ -1,45 +1,33 @@
 <script setup lang="ts">
-import { Product } from "@carolineaugier/api-types";
+import { Page } from "@carolineaugier/api-types";
+
+import CASkeleton from "../skeleton/CASkeleton.vue";
 
 defineProps<{
   isLoading: boolean;
-  featuredProducts?: {
-    id: string;
-    title: string | null | undefined;
-    product: Product;
-  }[];
+  page?: Page | null;
 }>();
 </script>
 
 <template>
-  <div
-    v-if="featuredProducts?.length"
-    class="grid grid-cols-4"
-  >
-    <figure
-      v-for="featuredProduct in featuredProducts"
-      :key="featuredProduct.product.id"
-      class="relative"
-    >
-      <img
-        v-if="featuredProduct.product.featuredImage"
-        class="aspect-square"
-        :src="featuredProduct.product.featuredImage.url"
-        :alt="
-          featuredProduct.product.featuredImage.altText ??
-          featuredProduct.title ??
-          featuredProduct.product.title
-        "
-        loading="lazy"
-      />
+  <div class="max-w-7xl mx-auto">
+    <CASkeleton
+      v-if="isLoading"
+      class="w-full h-64"
+    />
 
-      <figcaption
-        class="absolute bottom-0 left-0 bg-black px-4 py-2 text-white text-lg uppercase"
+    <template v-else>
+      <div
+        v-if="page"
+        class="space-y-4"
       >
-        {{ featuredProduct.title ?? featuredProduct.product?.title }}
-      </figcaption>
-    </figure>
-  </div>
+        <h1 class="text-2xl uppercase font-semibold">{{ page.title }}</h1>
 
-  <p v-else>No featured products</p>
+        <div
+          class="space-y-2"
+          v-html="page.body"
+        />
+      </div>
+    </template>
+  </div>
 </template>

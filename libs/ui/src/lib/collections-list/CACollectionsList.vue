@@ -35,19 +35,18 @@ defineProps<{
           :key="index"
           class="group"
           :to="{
-            name: SHOPIFY_ROUTES.ProductDetails.name,
+            name: SHOPIFY_ROUTES.CollectionDetails.name,
             params: {
               handle: collection.handle,
             },
           }"
         >
           <figure class="relative bg-white size-full">
-            <div class="relative">
-              <CAImage
-                :src="collection.image?.url"
-                :alt-text="collection.image?.altText ?? collection.title"
-              />
-            </div>
+            <CAImage
+              class="aspect-square"
+              :src="collection.image?.url"
+              :alt-text="collection.image?.altText ?? collection.title"
+            />
 
             <figcaption class="absolute bottom-0 left-0">
               <CASticker :icon="MoreIcon">{{ collection.title }}</CASticker>
