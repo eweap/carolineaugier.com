@@ -1,0 +1,5 @@
+@layer components {
+  .error-text {
+    @apply text-sm text-center text-red-800;
+  }
+}

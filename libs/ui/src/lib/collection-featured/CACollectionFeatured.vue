@@ -43,12 +43,10 @@ const products = computed(
         }"
       >
         <figure class="relative">
-          <div class="relative">
-            <CAImage
-              :src="product.featuredImage?.url"
-              :alt-text="product.featuredImage?.altText ?? product.title"
-            />
-          </div>
+          <CAImage
+            :src="product.featuredImage?.url"
+            :alt-text="product.featuredImage?.altText ?? product.title"
+          />
 
           <figcaption class="absolute bottom-0 left-0">
             <CASticker :icon="MoreIcon">{{ product.title }}</CASticker>

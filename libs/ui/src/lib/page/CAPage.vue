@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { Page } from "@carolineaugier/api-types";
 
+import CAHtml from "../html/CAHtml.vue";
 import CASkeleton from "../skeleton/CASkeleton.vue";
+import CATitle from "../title/CATitle.vue";
 
 defineProps<{
   isLoading: boolean;
@@ -21,12 +23,9 @@ defineProps<{
         v-if="page"
         class="space-y-4"
       >
-        <h1 class="text-2xl uppercase font-semibold">{{ page.title }}</h1>
+        <CATitle>{{ page.title }}</CATitle>
 
-        <div
-          class="space-y-2"
-          v-html="page.body"
-        />
+        <CAHtml :content="page.body" />
       </div>
     </template>
   </div>

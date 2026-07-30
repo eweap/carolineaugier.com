@@ -3,7 +3,12 @@ import { computed } from "vue";
 import { useQuery } from "@tanstack/vue-query";
 
 import { collectionsQueries } from "@carolineaugier/api";
-import { CALazySection, CAProductsList, CASkeleton } from "@carolineaugier/ui";
+import {
+  CALazySection,
+  CAProductsList,
+  CASkeleton,
+  CATitle,
+} from "@carolineaugier/ui";
 
 const props = defineProps<{
   handle: string;
@@ -29,9 +34,7 @@ const products = computed(
       >
         <section class="max-w-7xl mx-auto">
           <!-- Title -->
-          <h1 class="text-2xl uppercase font-semibold">
-            {{ collectionDetails.title }}
-          </h1>
+          <CATitle>{{ collectionDetails.title }}</CATitle>
 
           <!-- Description -->
           <p v-if="collectionDetails.description">

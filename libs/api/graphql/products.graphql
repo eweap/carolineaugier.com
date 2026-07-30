@@ -35,5 +35,6 @@ query getProductsList {
 query getProductByHandle($handle: String) {
   product(handle: $handle) {
     ...productFields
+    descriptionHtml
   }
 }

@@ -12,13 +12,13 @@ const { data: shopDetails } = useQuery(shopDetailsQueries.getShopDetails());
 
 <template>
   <Suspense>
-    <div>
+    <div class="grid grid-rows-[auto_1fr_auto] h-full">
       <CATopbar
         :logo="shopDetails?.brand?.logo?.image"
         :items="mainMenu?.items"
       />
 
-      <main>
+      <main class="px-8">
         <router-view />
       </main>
 

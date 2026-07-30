@@ -48,6 +48,7 @@ export const router = createRouter({
           path: SHOPIFY_ROUTES.ProductDetails.path,
           name: SHOPIFY_ROUTES.ProductDetails.name,
           component: () => import("../views/products/ProductDetails.vue"),
+          props: true,
         },
       ],
     },
