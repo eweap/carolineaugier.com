@@ -38,6 +38,7 @@ const config: CodegenConfig = {
       config: {
         scalars: {
           URL: "string",
+          HTML: "string",
         },
       },
     },
@@ -48,6 +49,7 @@ const config: CodegenConfig = {
         preResolveTypes: true,
         scalars: {
           URL: "string",
+          HTML: "string",
         },
       },
     },

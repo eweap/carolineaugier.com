@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Page } from "@carolineaugier/api-types";
 
+import CAHtml from "../html/CAHtml.vue";
 import CASkeleton from "../skeleton/CASkeleton.vue";
 
 defineProps<{
@@ -23,10 +24,7 @@ defineProps<{
       >
         <h1 class="text-2xl uppercase font-semibold">{{ page.title }}</h1>
 
-        <div
-          class="space-y-2"
-          v-html="page.body"
-        />
+        <CAHtml :content="page.body" />
       </div>
     </template>
   </div>

@@ -11,7 +11,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="grid grid-cols-4 gap-4">
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
     <template v-if="isLoading">
       <CASkeletonProduct
         v-for="(_, index) in 10"

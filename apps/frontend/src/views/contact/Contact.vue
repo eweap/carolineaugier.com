@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/vue-query";
 
 import { pagesQueries, useContact } from "@carolineaugier/api";
 import { SHOPIFY_HANDLES } from "@carolineaugier/common";
-import { CAButton, CAInput, CASkeleton } from "@carolineaugier/ui";
+import { CAButton, CAHtml, CAInput, CASkeleton } from "@carolineaugier/ui";
 
 const { data: page, isLoading } = useQuery(
   pagesQueries.getPageByHandle(SHOPIFY_HANDLES.pages.contact),
@@ -56,9 +56,9 @@ async function onSubmit() {
 
         <section class="max-w-7xl mx-auto">
           <div class="space-y-8">
-            <div
-              class="space-y-2 text-justify"
-              v-html="page.body"
+            <CAHtml
+              class="text-justify"
+              :content="page.body"
             />
 
             <form

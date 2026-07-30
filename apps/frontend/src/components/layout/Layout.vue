@@ -18,7 +18,7 @@ const { data: shopDetails } = useQuery(shopDetailsQueries.getShopDetails());
         :items="mainMenu?.items"
       />
 
-      <main>
+      <main class="px-8">
         <router-view />
       </main>
 

@@ -1,10 +1,18 @@
 <script setup lang="ts">
+import { type Component } from "vue";
+
 withDefaults(
   defineProps<{
     variant?: "primary" | "outline" | "ghost";
+    size?: "sm" | "md" | "lg";
+    iconStart?: Component;
+    iconEnd?: Component;
   }>(),
   {
     variant: "primary",
+    size: "md",
+    iconStart: undefined,
+    iconEnd: undefined,
   },
 );
 </script>
@@ -16,9 +24,22 @@ withDefaults(
       'button--primary': variant === 'primary',
       'button--outline': variant === 'outline',
       'button--ghost': variant === 'ghost',
+      'button--sm': size === 'sm',
+      'button--md': size === 'md',
+      'button--lg': size === 'lg',
     }"
   >
-    <slot />
+    <component
+      :is="iconStart"
+      v-if="iconStart"
+    />
+
+    <span><slot /></span>
+
+    <component
+      :is="iconEnd"
+      v-if="iconEnd"
+    />
   </button>
 </template>
 
@@ -27,10 +48,20 @@ withDefaults(
 
 .button {
   @apply appearance-none;
-  @apply py-1 px-2;
+  @apply flex items-center justify-between gap-2;
   @apply uppercase font-semibold;
   @apply cursor-pointer;
   @apply transition-colors duration-150;
+}
+
+.button--sm {
+  @apply py-1 px-1;
+}
+.button--md {
+  @apply py-1 px-2;
+}
+.button--lg {
+  @apply py-2 px-4;
 }
 
 .button--primary {
