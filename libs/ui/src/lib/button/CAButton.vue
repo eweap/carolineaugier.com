@@ -47,27 +47,30 @@ withDefaults(
 @reference 'tailwindcss';
 
 .button {
-  @apply appearance-none;
-  @apply flex items-center justify-between gap-2;
-  @apply uppercase font-semibold;
+  @apply appearance-none outline-none;
+  @apply flex items-center justify-center gap-2;
+  @apply uppercase font-semibold  focus-visible:underline;
   @apply cursor-pointer;
   @apply transition-colors duration-150;
 }
 
 .button--sm {
-  @apply py-1 px-1;
+  @apply py-0 px-2;
+  @apply text-sm;
 }
 .button--md {
-  @apply py-1 px-2;
+  @apply py-1 px-4;
+  @apply text-base;
 }
 .button--lg {
-  @apply py-2 px-4;
+  @apply py-4 px-8;
+  @apply text-lg;
 }
 
 .button--primary {
   @apply border-2 border-black active:border-neutral-200;
   @apply bg-black hover:bg-white;
-  @apply text-white hover:text-black active:text-neutral-700;
+  @apply text-white hover:text-black active:text-neutral-700 focus-visible:underline;
 }
 
 .button--outline {

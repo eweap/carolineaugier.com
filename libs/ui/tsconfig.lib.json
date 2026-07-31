@@ -42,6 +42,9 @@
   ],
   "references": [
     {
+      "path": "../testing/tsconfig.lib.json"
+    },
+    {
       "path": "../common/tsconfig.lib.json"
     },
     {

@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import { useQuery } from "@tanstack/vue-query";
+import SendIcon from "~icons/material-symbols-light/send";
 
 import { pagesQueries, useContact } from "@carolineaugier/api";
 import { SHOPIFY_HANDLES } from "@carolineaugier/common";
-import { CAButton, CAHtml, CAInput, CASkeleton } from "@carolineaugier/ui";
+import {
+  CAButton,
+  CAHtml,
+  CAInput,
+  CASkeleton,
+  CATitle,
+} from "@carolineaugier/ui";
 
 const { data: page, isLoading } = useQuery(
   pagesQueries.getPageByHandle(SHOPIFY_HANDLES.pages.contact),
@@ -38,9 +45,7 @@ async function onSubmit() {
         class="space-y-4"
       >
         <section class="max-w-7xl mx-auto">
-          <h1 class="text-2xl uppercase font-semibold">
-            {{ page.title }}
-          </h1>
+          <CATitle>{{ page.title }}</CATitle>
         </section>
 
         <!-- Image -->
@@ -98,7 +103,9 @@ async function onSubmit() {
 
               <CAButton
                 type="submit"
-                class="col-span-2 h-16 text-xl uppercase"
+                size="lg"
+                :icon-start="SendIcon"
+                class="col-span-2"
                 @click="onSubmit"
                 >Send</CAButton
               >

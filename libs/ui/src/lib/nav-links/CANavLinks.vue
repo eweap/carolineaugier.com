@@ -29,7 +29,7 @@ a {
 a::after {
   content: "";
   @apply absolute -bottom-1 left-0;
-  @apply w-full h-0.5;
+  @apply w-full h-[1px];
   @apply bg-black;
   @apply opacity-0 duration-300;
 }

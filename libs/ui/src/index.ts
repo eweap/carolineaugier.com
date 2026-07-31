@@ -1,4 +1,5 @@
 export { default as CAButton } from "./lib/button/CAButton.vue";
+export { default as CAAddToCart } from "./lib/add-to-cart/CAAddToCart.vue";
 export { default as CACollectionFeatured } from "./lib/collection-featured/CACollectionFeatured.vue";
 export { default as CACollectionsList } from "./lib/collections-list/CACollectionsList.vue";
 export { default as CAFooter } from "./lib/footer/CAFooter.vue";
@@ -12,6 +13,8 @@ export { default as CAPage } from "./lib/page/CAPage.vue";
 export { default as CAProductCard } from "./lib/product-card/CAProductCard.vue";
 export { default as CAProductVariants } from "./lib/product-variants/CAProductVariants.vue";
 export { default as CAProductsList } from "./lib/products-list/CAProductsList.vue";
+export { default as CAQuantityPicker } from "./lib/quantity-picker/CAQuantityPicker.vue";
 export * from "./lib/skeleton";
 export { default as CASticker } from "./lib/sticker/CASticker.vue";
+export { default as CATitle } from "./lib/title/CATitle.vue";
 export { default as CATopbar } from "./lib/topbar/CATopbar.vue";

@@ -4,7 +4,7 @@ export type * as Operations from "./lib/__generated__/models";
 export type { ShopFieldsFragment as ShopDetails } from "./lib/__generated__/models";
 export type { MenuItemFieldsFragment as MenuItem } from "./lib/__generated__/models";
 export type { MenuFieldsFragment as Menu } from "./lib/__generated__/models";
-export { MenuItemType } from "./lib/__generated__/schema";
+export { MenuItemType, CurrencyCode } from "./lib/__generated__/schema";
 export type { PageFieldsFragment as Page } from "./lib/__generated__/models";
 
 // Collections

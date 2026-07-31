@@ -8,6 +8,7 @@ import { SHOPIFY_ROUTES } from "@carolineaugier/common";
 import CAImage from "../image/CAImage.vue";
 import CASkeleton from "../skeleton/CASkeleton.vue";
 import CASticker from "../sticker/CASticker.vue";
+import CATitle from "../title/CATitle.vue";
 
 defineProps<{
   isLoading: boolean;
@@ -17,7 +18,7 @@ defineProps<{
 
 <template>
   <div class="space-y-4">
-    <h1 class="text-2xl uppercase font-semibold">collections</h1>
+    <CATitle>Collections</CATitle>
 
     <CASkeleton
       v-if="isLoading"

@@ -12,7 +12,7 @@ defineProps<{
     <div
       v-for="(variant, index) in product.variants.edges"
       :key="index"
-      class="size-6 rounded-full bg-neutral-200 hover:bg-neutral-400 transition-colors duration-75"
+      class="size-6 rounded-full bg-neutral-200 hover:bg-neutral-400 cursor-pointer transition-colors duration-75"
       :title="`${variant.node.title} - ${getPrice(variant.node.price)}`"
     />
   </div>

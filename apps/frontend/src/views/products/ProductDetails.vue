@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { useQuery } from "@tanstack/vue-query";
-import CartIcon from "~icons/material-symbols-light/add-shopping-cart";
 
 import { productsQueries } from "@carolineaugier/api";
 import {
-  CAButton,
+  CAAddToCart,
   CAHtml,
   CAImage,
   CALazySection,
   CAProductVariants,
   CASkeleton,
+  CATitle,
 } from "@carolineaugier/ui";
 
 const props = defineProps<{
@@ -31,7 +31,7 @@ const { data: productDetails, isLoading } = useQuery(
         class="space-y-4"
       >
         <section class="max-w-7xl mx-auto">
-          <div class="grid md:grid-cols-2 gap-4">
+          <div class="grid md:grid-cols-2 gap-8">
             <CAImage
               :src="productDetails.featuredImage?.url"
               :alt-text="
@@ -42,22 +42,20 @@ const { data: productDetails, isLoading } = useQuery(
             <!-- Informations -->
             <div class="space-y-8">
               <!-- Title -->
-              <h1 class="text-2xl uppercase font-semibold">
-                {{ productDetails.title }}
-              </h1>
+              <CATitle>{{ productDetails.title }}</CATitle>
 
               <hr />
 
               <!-- Variants -->
               <div class="space-y-2">
-                <h2 class="uppercase font-semibold">Variants:</h2>
+                <CATitle heading="h2">Variants:</CATitle>
 
                 <CAProductVariants :product="productDetails" />
               </div>
 
               <!-- Description -->
               <div class="space-y-2">
-                <h2 class="uppercase font-semibold">Description:</h2>
+                <CATitle heading="h2">Description:</CATitle>
 
                 <CAHtml
                   v-if="productDetails.descriptionHtml"
@@ -65,7 +63,8 @@ const { data: productDetails, isLoading } = useQuery(
                 />
               </div>
 
-              <CAButton :icon-start="CartIcon">Add to cart</CAButton>
+              <!-- Add to cart -->
+              <CAAddToCart />
             </div>
           </div>
         </section>

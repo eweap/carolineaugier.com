@@ -6,9 +6,15 @@
 @source "../../../libs/api/types";
 @source "../../../libs/api/util";
 @source "../../../libs/common";
+@source "../../../libs/testing";
 @source "../../../libs/ui";
 /* nx-tailwind-sources:end */
 
-html {
+html,
+body {
+  @apply h-full;
+}
+
+#root {
   @apply h-full;
 }

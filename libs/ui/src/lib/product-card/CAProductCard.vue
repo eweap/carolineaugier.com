@@ -2,11 +2,7 @@
 import { RouterLink } from "vue-router";
 
 import { Product } from "@carolineaugier/api-types";
-import {
-  SHOPIFY_ROUTES,
-  getPrice,
-  getPriceRange,
-} from "@carolineaugier/common";
+import { SHOPIFY_ROUTES, getPriceRange } from "@carolineaugier/common";
 
 import CAImage from "../image/CAImage.vue";
 import CAProductVariants from "../product-variants/CAProductVariants.vue";
@@ -18,13 +14,14 @@ const props = defineProps<{
 
 <template>
   <RouterLink
-    class="group grid grid-rows-subgrid row-span-4 gap-4 bg-neutral-50 p-4"
+    class="product-card group flex flex-col h-full gap-4"
     :to="{
       name: SHOPIFY_ROUTES.ProductDetails.name,
       params: {
         handle: product.handle,
       },
     }"
+    :title="product.title"
   >
     <!-- Image -->
     <CAImage
@@ -33,19 +30,22 @@ const props = defineProps<{
       :alt-text="product.featuredImage?.altText ?? product.title"
     />
 
-    <div class="grid grid-rows-subgrid row-span-3 gap-4 px-2">
+    <div class="product-card__details flex flex-1 flex-col gap-4">
       <!-- Title -->
       <div class="uppercase font-light leading-tight">{{ product.title }}</div>
 
-      <!-- Price -->
-      <div class="text-sm">{{ getPriceRange(props.product.priceRange) }}</div>
+      <div class="space-y-4">
+        <!-- Price -->
+        <div class="text-sm">{{ getPriceRange(props.product.priceRange) }}</div>
 
-      <!-- Variants -->
-      <CAProductVariants
-        v-if="product.variants.edges.length > 1"
-        class="mx-auto"
-        :product="product"
-      />
+        <!-- Variants -->
+        <div
+          v-if="product.variants.edges.length > 1"
+          class="mx-auto w-fit"
+        >
+          <CAProductVariants :product="product" />
+        </div>
+      </div>
     </div>
   </RouterLink>
 </template>
