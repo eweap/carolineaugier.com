@@ -54,3 +54,5 @@ storybook-static
 !.env.example
 
 __generated__
+
+.nx/polygraph
