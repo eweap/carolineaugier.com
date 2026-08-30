@@ -75,6 +75,9 @@
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
       }
+    },
+    {
+      "plugin": "@eweap/nx-workspace-tools"
     }
   ],
   "targetDefaults": {

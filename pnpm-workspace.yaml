@@ -12,3 +12,6 @@ allowBuilds:
   esbuild: true
   nx: true
   vue-demi: true
+
+minimumReleaseAgeExclude:
+  - '@eweap/nx-workspace-tools@0.0.2-11'
