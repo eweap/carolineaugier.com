@@ -24,6 +24,7 @@ export function createProductMock(name = "product") {
       edges: [
         {
           node: {
+            id: `gid://shopify/ProductVariant/${name}-1`,
             title: "First title",
             price: {
               amount: "10.0",
@@ -33,6 +34,7 @@ export function createProductMock(name = "product") {
         },
         {
           node: {
+            id: `gid://shopify/ProductVariant/${name}-2`,
             title: "Second title",
             price: {
               amount: "5.0",

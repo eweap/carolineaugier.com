@@ -2,6 +2,7 @@ export type * as Operations from "./lib/__generated__/models";
 
 // General
 export type { ShopFieldsFragment as ShopDetails } from "./lib/__generated__/models";
+export type { CartFieldsFragment as Cart } from "./lib/__generated__/models";
 export type { MenuItemFieldsFragment as MenuItem } from "./lib/__generated__/models";
 export type { MenuFieldsFragment as Menu } from "./lib/__generated__/models";
 export { MenuItemType, CurrencyCode } from "./lib/__generated__/schema";

@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { useQuery } from "@tanstack/vue-query";
 import SendIcon from "~icons/material-symbols-light/send";
 
 import { pagesQueries, useContact } from "@carolineaugier/api";
-import { SHOPIFY_HANDLES } from "@carolineaugier/common";
+import { SHOPIFY_HANDLES, getMediaImage } from "@carolineaugier/common";
 import {
   CAButton,
   CAHtml,
@@ -16,6 +17,10 @@ const { data: page, isLoading } = useQuery(
   pagesQueries.getPageByHandle(SHOPIFY_HANDLES.pages.contact),
 );
 const { mutateAsync: sendMail } = useContact();
+
+const pageImage = computed(
+  () => getMediaImage(page.value?.image?.reference)?.image,
+);
 
 async function onSubmit() {
   try {
@@ -51,10 +56,10 @@ async function onSubmit() {
         <!-- Image -->
         <div class="group flex items-center h-96 overflow-hidden">
           <img
-            v-if="page.image?.reference?.image?.url"
+            v-if="pageImage?.url"
             class="transition-transform duration-700 group-hover:scale-105"
-            :src="page.image.reference.image.url"
-            :alt="page.image.reference.image.altText ?? page.title"
+            :src="pageImage.url"
+            :alt="pageImage.altText ?? page.title"
             loading="lazy"
           />
         </div>

@@ -4,6 +4,13 @@ export const SHOP_DETAILS: ShopDetails = {
   name: "Caroline Augier",
   description: "Shop description",
   brand: {
+    shortDescription: "FAKE_SHORT_DESCRIPTION",
+    squareLogo: {
+      image: {
+        url: "https://picsum.photos/600/600",
+        altText: "FAKE_ALT_TEXT",
+      },
+    },
     colors: {
       primary: [
         {
@@ -31,5 +38,9 @@ export const SHOP_DETAILS: ShopDetails = {
       },
     },
     slogan: "Slogan",
+  },
+  contactInformation: {
+    title: "FAKE_TITLE",
+    body: "FAKE_BODY",
   },
 };

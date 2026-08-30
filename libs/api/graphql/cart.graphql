@@ -1,0 +1,34 @@
+fragment cartFields on Cart {
+  id
+  totalQuantity
+}
+
+query getCart($id: ID!) {
+  cart(id: $id) {
+    ...cartFields
+  }
+}
+
+mutation createCart($lines: [CartLineInput!]) {
+  cartCreate(input: { lines: $lines }) {
+    cart {
+      ...cartFields
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}
+
+mutation addCartLines($cartId: ID!, $lines: [CartLineInput!]!) {
+  cartLinesAdd(cartId: $cartId, lines: $lines) {
+    cart {
+      ...cartFields
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}

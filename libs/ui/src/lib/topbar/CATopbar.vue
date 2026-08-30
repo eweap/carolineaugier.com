@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { MenuItem } from "@carolineaugier/api-types";
+import { Cart, MenuItem } from "@carolineaugier/api-types";
 import { SHOPIFY_ROUTES } from "@carolineaugier/common";
 
+import CACart from "../cart/CACart.vue";
 import CANavLinks from "../nav-links/CANavLinks.vue";
 import CASkeleton from "../skeleton/CASkeleton.vue";
 
@@ -11,11 +12,12 @@ defineProps<{
     altText?: string | null;
   } | null;
   items?: MenuItem[];
+  cart?: Cart;
 }>();
 </script>
 
 <template>
-  <div class="p-8 flex flex-col lg:flex-row items-center gap-8">
+  <div class="p-8 grid grid-cols-[auto_1fr_auto] items-center gap-8">
     <!-- Logo -->
     <div class="shrink-0 z-10">
       <RouterLink
@@ -51,6 +53,11 @@ defineProps<{
         v-else
         class="w-96 h-8"
       />
+    </div>
+
+    <!-- Cart -->
+    <div>
+      <CACart :total-quantity="cart?.totalQuantity" />
     </div>
   </div>
 </template>

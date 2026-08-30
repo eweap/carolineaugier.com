@@ -25,6 +25,10 @@ a {
   @apply uppercase font-normal text-neutral-700 hover:text-black transition-colors duration-300;
 }
 
+a.router-link-exact-active {
+  @apply text-black;
+}
+
 /* After */
 a::after {
   content: "";

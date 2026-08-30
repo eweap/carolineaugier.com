@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { computed, ref, watch } from "vue";
 import { useQuery } from "@tanstack/vue-query";
+import { storeToRefs } from "pinia";
 
 import { productsQueries } from "@carolineaugier/api";
 import {
@@ -12,6 +14,8 @@ import {
   CATitle,
 } from "@carolineaugier/ui";
 
+import { useCartStore } from "../../stores/cart.store";
+
 const props = defineProps<{
   handle: string;
 }>();
@@ -19,6 +23,48 @@ const props = defineProps<{
 const { data: productDetails, isLoading } = useQuery(
   productsQueries.getProductDetails(props.handle),
 );
+
+const cartStore = useCartStore();
+const { addToCartErrorMessage, isAddToCartPending } = storeToRefs(cartStore);
+
+const selectedVariantId = ref<string>();
+
+// Pre-select the first variant if exists
+watch(
+  () => productDetails.value?.variants.edges,
+  (variants) => {
+    const firstVariantId = variants?.[0]?.node.id;
+
+    if (!firstVariantId) {
+      selectedVariantId.value = undefined;
+      return;
+    }
+
+    if (
+      !selectedVariantId.value ||
+      !variants?.some((variant) => variant.node.id === selectedVariantId.value)
+    ) {
+      selectedVariantId.value = firstVariantId;
+    }
+  },
+  {
+    immediate: true,
+  },
+);
+
+const hasMultipleVariants = computed(() =>
+  productDetails.value
+    ? productDetails.value?.variants.edges.length > 1
+    : false,
+);
+
+async function onAddToCart(quantity: number) {
+  if (!selectedVariantId.value) {
+    return;
+  }
+
+  await cartStore.addToCart(selectedVariantId.value, quantity);
+}
 </script>
 
 <template>
@@ -47,10 +93,16 @@ const { data: productDetails, isLoading } = useQuery(
               <hr />
 
               <!-- Variants -->
-              <div class="space-y-2">
+              <div
+                v-if="hasMultipleVariants"
+                class="space-y-2"
+              >
                 <CATitle heading="h2">Variants:</CATitle>
 
-                <CAProductVariants :product="productDetails" />
+                <CAProductVariants
+                  v-model="selectedVariantId"
+                  :product="productDetails"
+                />
               </div>
 
               <!-- Description -->
@@ -64,7 +116,20 @@ const { data: productDetails, isLoading } = useQuery(
               </div>
 
               <!-- Add to cart -->
-              <CAAddToCart />
+              <div class="space-y-2">
+                <CAAddToCart
+                  :disabled="!selectedVariantId"
+                  :is-pending="isAddToCartPending"
+                  @submit="onAddToCart"
+                />
+
+                <p
+                  v-if="addToCartErrorMessage"
+                  class="text-sm text-red-600"
+                >
+                  {{ addToCartErrorMessage }}
+                </p>
+              </div>
             </div>
           </div>
         </section>

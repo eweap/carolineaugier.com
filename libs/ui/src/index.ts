@@ -1,5 +1,6 @@
-export { default as CAButton } from "./lib/button/CAButton.vue";
 export { default as CAAddToCart } from "./lib/add-to-cart/CAAddToCart.vue";
+export { default as CAButton } from "./lib/button/CAButton.vue";
+export { default as CACart } from "./lib/cart/CACart.vue";
 export { default as CACollectionFeatured } from "./lib/collection-featured/CACollectionFeatured.vue";
 export { default as CACollectionsList } from "./lib/collections-list/CACollectionsList.vue";
 export { default as CAFooter } from "./lib/footer/CAFooter.vue";

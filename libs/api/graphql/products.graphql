@@ -13,6 +13,7 @@ fragment productFields on Product {
   variants(first: 12) {
     edges {
       node {
+        id
         title
         price {
           ...moneyV2Fields

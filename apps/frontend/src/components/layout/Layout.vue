@@ -1,13 +1,29 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { useQuery } from "@tanstack/vue-query";
+import { storeToRefs } from "pinia";
 
-import { menusQueries, shopDetailsQueries } from "@carolineaugier/api";
+import {
+  Cart,
+  cartQueries,
+  menusQueries,
+  shopDetailsQueries,
+} from "@carolineaugier/api";
 import { CAFooter, CATopbar } from "@carolineaugier/ui";
+
+import { useCartStore } from "../../stores/cart.store";
 
 const { data: mainMenu } = useQuery(menusQueries.getMenu("main-menu"));
 const { data: footerMenu } = useQuery(menusQueries.getMenu("footer"));
 
 const { data: shopDetails } = useQuery(shopDetailsQueries.getShopDetails());
+
+const cartStore = useCartStore();
+const { cartId } = storeToRefs(cartStore);
+
+const { data: cart } = useQuery<Cart | undefined>(
+  computed(() => cartQueries.getCart(cartId.value)),
+);
 </script>
 
 <template>
@@ -16,6 +32,7 @@ const { data: shopDetails } = useQuery(shopDetailsQueries.getShopDetails());
       <CATopbar
         :logo="shopDetails?.brand?.logo?.image"
         :items="mainMenu?.items"
+        :cart="cart"
       />
 
       <main class="px-8">

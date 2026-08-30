@@ -5,10 +5,25 @@ import CartIcon from "~icons/material-symbols-light/add-shopping-cart";
 import CAButton from "../button/CAButton.vue";
 import CAQuantityPicker from "../quantity-picker/CAQuantityPicker.vue";
 
+withDefaults(
+  defineProps<{
+    disabled?: boolean;
+    isPending?: boolean;
+  }>(),
+  {
+    disabled: false,
+    isPending: false,
+  },
+);
+
+const emit = defineEmits<{
+  submit: [quantity: number];
+}>();
+
 const quantity = ref(1);
 
 function onSubmit() {
-  throw new Error("Not implemented");
+  emit("submit", quantity.value);
 }
 </script>
 
@@ -33,7 +48,8 @@ function onSubmit() {
       type="submit"
       size="lg"
       :icon-start="CartIcon"
-      >Add to cart</CAButton
+      :disabled="disabled || isPending"
+      >{{ isPending ? "Adding..." : "Add to cart" }}</CAButton
     >
   </form>
 </template>

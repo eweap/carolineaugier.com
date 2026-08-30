@@ -50,6 +50,13 @@ export const router = createRouter({
           component: () => import("../views/products/ProductDetails.vue"),
           props: true,
         },
+
+        // Checkout
+        {
+          path: SHOPIFY_ROUTES.Cart.path,
+          name: SHOPIFY_ROUTES.Cart.name,
+          component: () => import("../views/cart/Cart.vue"),
+        },
       ],
     },
   ],

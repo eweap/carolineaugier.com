@@ -16,5 +16,6 @@ body {
 }
 
 #root {
-  @apply h-full;
+  /* Keep the scrollbar gutter visible when moving from a scrollable page to a non-scrollable one. */
+  @apply h-full overflow-y-scroll;
 }

@@ -28,4 +28,10 @@ export const SHOPIFY_ROUTES = {
     name: "product-details",
     path: "/products/:handle",
   },
+
+  // Checkout
+  Cart: {
+    name: "cart",
+    path: "/pages/cart",
+  },
 };

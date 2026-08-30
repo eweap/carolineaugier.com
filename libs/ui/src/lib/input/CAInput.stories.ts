@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import CAInput from "./CAInput.vue";
 
 const meta = {
-  component: CAInput,
+  component: CAInput as Meta<typeof CAInput>["component"],
   title: "CAInput",
   render: (args) => ({
     components: { CAInput },
