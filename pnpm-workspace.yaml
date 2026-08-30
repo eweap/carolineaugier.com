@@ -8,7 +8,7 @@ autoInstallPeers: true
 ignoreWorkspaceRootCheck: true
 
 allowBuilds:
-  '@swc/core': true
+  "@swc/core": true
   esbuild: true
   nx: true
   vue-demi: true
